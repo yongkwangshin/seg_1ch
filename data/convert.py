@@ -25,7 +25,7 @@ for fname in flist:
     out_path2= os.path.join('targets2', fname)
 #print(out_path)
     cv2.imwrite(out_path, img_resize)
-    cv2.imwrite(out_path, img_resize)
+    cv2.imwrite(out_path2, img_resize)
 #cv2.waitKey(0)
 #fname = 'data_0014.png'
 
