@@ -35,8 +35,8 @@ np.set_printoptions(threshold=np.nan)
 
 
 class Network:
-    IMAGE_HEIGHT = 512
-    IMAGE_WIDTH = 512
+    IMAGE_HEIGHT = 384
+    IMAGE_WIDTH = 384
     IMAGE_CHANNELS = 1
 
     def __init__(self, layers=None, per_image_standardization=True, batch_norm=True, skip_connections=True):
@@ -112,7 +112,7 @@ class Dataset:
         self.include_hair = include_hair
 
         train_files, validation_files, test_files = self.train_valid_test_split(
-            os.listdir(os.path.join(folder, 'inputs3')))
+            os.listdir(os.path.join(folder, 'inputs4')))
 
         self.train_inputs, self.train_targets = self.file_paths_to_images(folder, train_files)
         self.test_inputs, self.test_targets = self.file_paths_to_images(folder, test_files, True)
@@ -124,8 +124,8 @@ class Dataset:
         targets = []
 
         for file in files_list:
-            input_image = os.path.join(folder, 'inputs3', file)
-            target_image = os.path.join(folder, 'targets3' if self.include_hair else 'targets3', file)
+            input_image = os.path.join(folder, 'inputs4', file)
+            target_image = os.path.join(folder, 'targets4' if self.include_hair else 'targets4', file)
 
             test_image = np.array(cv2.imread(input_image, 0))  # load grayscale
             # test_image = np.multiply(test_image, 1.0 / 255)
