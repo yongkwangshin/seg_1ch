@@ -213,8 +213,7 @@ def train():
     # create directory for saving models
     os.makedirs(os.path.join('save', network.description, timestamp))
 
-    dataset = Dataset(folder='data'), include_hair=True,
-                      batch_size=BATCH_SIZE)
+    dataset = Dataset(folder='data'), include_hair=True, batch_size=BATCH_SIZE)
 
     inputs, targets = dataset.next_batch()
     print(inputs.shape, targets.shape)
