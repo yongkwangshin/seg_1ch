@@ -19,10 +19,10 @@ for fname in flist:
     #cv2.imshow('gray', gray)
     
     
-    img_resize = cv2.resize(gray, (256,256), interpolation = cv2.INTER_AREA)
-    img_resize2 = cv2.resize(gray2, (256,256), interpolation = cv2.INTER_AREA)
-    out_path = os.path.join('inputs2', fname)
-    out_path2= os.path.join('targets2', fname)
+    img_resize = cv2.resize(gray, (512,512), interpolation = cv2.INTER_AREA)
+    img_resize2 = cv2.resize(gray2, (512,512), interpolation = cv2.INTER_AREA)
+    out_path = os.path.join('inputs3', fname)
+    out_path2= os.path.join('targets3', fname)
 #print(out_path)
     cv2.imwrite(out_path, img_resize)
     cv2.imwrite(out_path2, img_resize2)
