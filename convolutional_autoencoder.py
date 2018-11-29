@@ -334,8 +334,10 @@ def train():
 
                     if test_accuracy >= max_acc[0]:
                         checkpoint_path = os.path.join('save', network.description, timestamp, 'model.ckpt')
+                        grpah_path = os.path.join('save', network.description, timestamp)
+                        
                         saver.save(sess, checkpoint_path, global_step=batch_num)
-
+                        tf.train.write_graph(sess.graph.as_graph_def(), grpah_path, "graph.pb")
 
 if __name__ == '__main__':
     train()
