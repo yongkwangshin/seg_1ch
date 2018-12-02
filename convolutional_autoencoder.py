@@ -97,7 +97,8 @@ class Network:
         self.cost = tf.sqrt(tf.reduce_mean(tf.square(self.segmentation_result - self.targets)))
         self.train_op = tf.train.AdamOptimizer().minimize(self.cost)
         with tf.name_scope('accuracy'):
-            argmax_probs = tf.round(self.segmentation_result)  # 0x1
+            argmax_probs = tf.to_int32(self.segmentation_result > 0.25)
+            #argmax_probs = tf.round(self.segmentation_result)  # 0x1
             correct_pred = tf.cast(tf.equal(argmax_probs, self.targets), tf.float32)
             self.accuracy = tf.reduce_mean(correct_pred)
 
